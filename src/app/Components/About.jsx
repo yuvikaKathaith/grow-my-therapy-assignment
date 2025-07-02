@@ -12,10 +12,13 @@ export default function About() {
             About Dr. Serena Blake
           </h2>
           <p className="mb-5 leading-relaxed text-[17px]">
-            Dr. Serena Blake is a licensed clinical psychologist (PsyD) based in Los Angeles, CA, with eight years of experience and over 500 client sessions. She blends evidence-based approaches—like cognitive-behavioral therapy and mindfulness—with compassionate, personalized care to help you overcome anxiety, strengthen relationships, and heal from trauma.
+            In today’s fast-paced world, prioritizing mental and emotional well-being can be difficult—but it's essential. I believe therapy provides a safe, intentional space to slow down, reflect, and reconnect with what matters most. Whether you're navigating stress, healing from trauma, or seeking deeper relationship satisfaction, therapy can support you in creating meaningful and lasting change.
           </p>
           <p className="leading-relaxed text-[17px]">
-            Whether you meet in her Maplewood Drive office or connect virtually via Zoom, Dr. Blake is committed to creating a safe, supportive space for you to thrive. Her therapeutic approach is rooted in empathy, curiosity, and evidence-based techniques tailored to your goals and needs.
+            As a licensed clinical psychologist with over eight years of experience and more than 500 client sessions, I approach therapy with a deep sense of empathy, respect, and curiosity. I work collaboratively with each client, offering evidence-based psychological insights, active listening, and compassionate support tailored to your individual journey. My goal is to help you uncover patterns, strengthen resilience, and move toward a more fulfilling life.
+          </p>
+          <p className="leading-relaxed text-[17px]">
+            I earned my Doctor of Psychology (PsyD) in Clinical Psychology and have practiced in both in-person and virtual settings. My style blends cognitive-behavioral therapy, mindfulness, and humanistic approaches with a trauma-informed lens. I specialize in helping adults navigate anxiety, stress, relationship challenges, and trauma recovery in a way that honors your values and unique experiences.
           </p>
         </div>
 
