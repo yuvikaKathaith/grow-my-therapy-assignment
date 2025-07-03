@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import toast from "react-hot-toast";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -13,6 +15,7 @@ export default function Contact() {
   });
 
   const [errors, setErrors] = useState({});
+
   const validate = () => {
     const newErrors = {};
     if (!form.name.trim()) newErrors.name = "Name is required";
@@ -31,12 +34,21 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      toast.error("Please fill in all required fields.");
     } else {
       setErrors({});
-      alert("Form submitted successfully!");
-      // handle form submission here
+      toast.success("Form submitted successfully!");
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        contactTime: "",
+        agree: false,
+      });
     }
   };
 
@@ -49,77 +61,91 @@ export default function Contact() {
   };
 
   return (
-    <section className="bg-[#f3f0e8] px-8 py-16 flex justify-center items-center text-xl font-ebgaramond">
-      <form
+    <motion.section
+      className="bg-[#f3f0e8] px-8 py-16 flex justify-center items-center text-xl font-ebgaramond"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
+    >
+      <motion.form
         onSubmit={handleSubmit}
         className="bg-white border border-[#c3cfc8] rounded-xl shadow-lg w-full max-w-xl p-8 text-[#1c4031]"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: true }}
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-2">
+        <motion.h2
+          className="text-3xl sm:text-4xl font-bold text-center mb-2"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           Get In Touch
-        </h2>
-        <p className="text-center text-[17px] text-gray-700 mb-6">
+        </motion.h2>
+
+        <motion.p
+          className="text-center text-[17px] text-gray-700 mb-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           Simply fill out the brief fields below and we’ll be in touch with you
           soon, usually within one business day. This form is safe, private, and
           completely free.
-        </p>
+        </motion.p>
 
-        <label className="block mb-2">Name</label>
-        <input
-          type="text"
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border rounded-md mb-1"
-          placeholder="Name"
-        />
-        {errors.name && <p className="text-red-500 text-sm mb-2">{errors.name}</p>}
+        {[
+          { label: "Name", name: "name", type: "text", placeholder: "Name" },
+          { label: "Email", name: "email", type: "email", placeholder: "you@example.com" },
+          { label: "Phone", name: "phone", type: "tel", placeholder: "(555) 234-5678" },
+          {
+            label: "What brings you here?",
+            name: "message",
+            type: "textarea",
+            placeholder: "How can I help you?",
+            rows: 3,
+          },
+          {
+            label: "Preferred Contact Time",
+            name: "contactTime",
+            type: "text",
+            placeholder: "e.g., Mornings, Evenings, Weekends",
+          },
+        ].map(({ label, name, type, placeholder, rows }, i) => (
+          <motion.div key={name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.15 + i * 0.1 }}>
+            <label className="block mb-2">{label}</label>
+            {type === "textarea" ? (
+              <textarea
+                name={name}
+                value={form[name]}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border rounded-md mb-1"
+                placeholder={placeholder}
+                rows={rows}
+              />
+            ) : (
+              <input
+                type={type}
+                name={name}
+                value={form[name]}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border rounded-md mb-1"
+                placeholder={placeholder}
+              />
+            )}
+            {errors[name] && <p className="text-red-500 text-sm mb-2">{errors[name]}</p>}
+          </motion.div>
+        ))}
 
-        <label className="block mb-2">Email</label>
-        <input
-          type="email"
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border rounded-md mb-1"
-          placeholder="you@example.com"
-        />
-        {errors.email && <p className="text-red-500 text-sm mb-2">{errors.email}</p>}
-
-        <label className="block mb-2">Phone</label>
-        <input
-          type="tel"
-          name="phone"
-          value={form.phone}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border rounded-md mb-1"
-          placeholder="(555) 234-5678"
-        />
-        {errors.phone && <p className="text-red-500 text-sm mb-2">{errors.phone}</p>}
-
-        <label className="block mb-2">What brings you here?</label>
-        <textarea
-          name="message"
-          value={form.message}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border rounded-md mb-1"
-          placeholder="How can I help you?"
-          rows={3}
-        />
-        {errors.message && <p className="text-red-500 text-sm mb-2">{errors.message}</p>}
-
-        <label className="block mb-2">Preferred Contact Time</label>
-        <input
-          type="text"
-          name="contactTime"
-          value={form.contactTime}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border rounded-md mb-1"
-          placeholder="e.g., Mornings, Afternoons, Evenings, Weekends"
-        />
-        {errors.contactTime && (
-          <p className="text-red-500 text-sm mb-2">{errors.contactTime}</p>
-        )}
-        <div className="flex items-start gap-2 mt-4 mb-3">
+        {/* Checkbox */}
+        <motion.div
+          className="flex items-start gap-2 mt-4 mb-3"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.7 }}
+        >
           <input
             type="checkbox"
             name="agree"
@@ -127,22 +153,30 @@ export default function Contact() {
             onChange={handleChange}
             className="mt-2"
           />
-          <label className="text-md">
-            I agree to be contacted
-          </label>
-        </div>
+          <label className="text-md">I agree to be contacted</label>
+        </motion.div>
         {errors.agree && <p className="text-red-500 text-sm mb-2">{errors.agree}</p>}
 
-        <button
+        {/* Submit Button */}
+        <motion.button
           type="submit"
           className="w-full bg-[#1c4031] hover:bg-[#163227] text-white py-2 rounded-md font-semibold"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.8 }}
         >
           Submit
-        </button>
-        <p className="text-[18px] text-center text-gray-500 mt-3">
+        </motion.button>
+
+        <motion.p
+          className="text-[18px] text-center text-gray-500 mt-3"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.9 }}
+        >
           © By clicking submit you consent to receive texts and emails from Dr. Serena Blake.
-        </p>
-      </form>
-    </section>
+        </motion.p>
+      </motion.form>
+    </motion.section>
   );
 }

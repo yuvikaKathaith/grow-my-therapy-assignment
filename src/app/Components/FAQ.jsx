@@ -9,40 +9,81 @@ import {
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { faqData } from "@/utils/faqData";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function FAQ() {
   const [openItem, setOpenItem] = useState("");
+
   return (
-    <section className="bg-white px-6 py-50 text-[#7a6e5c] font-ebgaramond">
-      <h2 className="text-4xl sm:text-5xl font-ebgaramond text-center mb-14">
-        Frequently Asked Questions
-      </h2>
-      <h3 className="text-3xl font-normal mx-auto font-ebgaramond max-w-4xl mb-3">Therapy</h3>
-      <Accordion
-        type="single"
-        collapsible
-        className="w-full max-w-4xl mx-auto"
-        value={openItem}
-        onValueChange={(val) => setOpenItem(val)}
+    <motion.section
+      className="bg-white px-6 py-50 text-[#7a6e5c] font-ebgaramond"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+      viewport={{ once: true }}
+    >
+      {/* Main Heading */}
+      <motion.h2
+        className="text-4xl sm:text-5xl text-center mb-14"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
       >
-        {faqData.map((faq) => (
-          <AccordionItem key={faq.id} value={`faq-${faq.id}`}>
-            <AccordionTrigger className="text-left text-[22px] sm:text-[24px] font-light flex items-center justify-start gap-5 hover:no-underline focus:no-underline [&>svg]:hidden">
-              <div className="border border-[#7a6e5c] rounded-full p-1">
-                {openItem === `faq-${faq.id}` ? (
-                  <ChevronDown className="w-5 h-5 text-[#7a6e5c]" />
-                ) : (
-                  <ChevronRight className="w-5 h-5 text-[#7a6e5c]" />
-                )}
-              </div>
-              <span>{faq.question}</span>
-            </AccordionTrigger>
-            <AccordionContent className=" text-[19px] sm:text-[21px] pl-12 leading-relaxed">
-              {faq.answer}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </section>
+        Frequently Asked Questions
+      </motion.h2>
+
+      {/* Subheading */}
+      <motion.h3
+        className="text-3xl font-normal mx-auto max-w-4xl mb-3"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+      >
+        Therapy
+      </motion.h3>
+
+      {/* Accordion */}
+      <motion.div
+        className="w-full max-w-4xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        transition={{ staggerChildren: 0.15, delayChildren: 0.3 }}
+        viewport={{ once: true }}
+      >
+        <Accordion
+          type="single"
+          collapsible
+          value={openItem}
+          onValueChange={(val) => setOpenItem(val)}
+        >
+          {faqData.map((faq) => (
+            <motion.div
+              key={faq.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <AccordionItem value={`faq-${faq.id}`}>
+                <AccordionTrigger className="text-left text-[22px] sm:text-[24px] font-light flex items-center justify-start gap-5 hover:no-underline focus:no-underline [&>svg]:hidden">
+                  <div className="border border-[#7a6e5c] rounded-full p-1">
+                    {openItem === `faq-${faq.id}` ? (
+                      <ChevronDown className="w-5 h-5 text-[#7a6e5c]" />
+                    ) : (
+                      <ChevronRight className="w-5 h-5 text-[#7a6e5c]" />
+                    )}
+                  </div>
+                  <span>{faq.question}</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-[19px] sm:text-[21px] pl-12 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </motion.div>
+          ))}
+        </Accordion>
+      </motion.div>
+    </motion.section>
   );
 }

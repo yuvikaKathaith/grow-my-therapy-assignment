@@ -1,14 +1,23 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section className="bg-white text-[#7a6e5c] px-6 sm:px-12 py-45">
+    <motion.section
+      className="bg-white text-[#7a6e5c] px-6 sm:px-12 py-45"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-16">
         
         {/* about text */}
-        <div className="md:w-1/2">
+        <div
+          className="md:w-1/2"
+        >
           <h2 className="text-2xl sm:text-[34px] font-serif font-light mb-10">
             About Dr. Serena Blake
           </h2>
@@ -27,7 +36,9 @@ export default function About() {
         </div>
 
         {/* about img */}
-        <div className="md:w-1/2 flex justify-center">
+        <div
+          className="md:w-1/2 flex justify-center"
+        >
           <Image
             src="/assets/about/profile.jpg"
             alt="Dr. Serena Blake"
@@ -37,6 +48,6 @@ export default function About() {
           />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
