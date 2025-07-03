@@ -24,7 +24,7 @@ export default function Hero() {
             >
               <source src="/assets/hero/nature.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-black/50 bg-opacity-30 z-10" />
+            <div className="absolute inset-0 bg-black/60 bg-opacity-30 z-10" />
           </>
         )}
 
