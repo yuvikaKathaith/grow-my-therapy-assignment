@@ -15,14 +15,14 @@ export default function Services() {
     >
       {/* main heading */}
       <motion.h2
-        className="text-4xl sm:text-5xl font-ebgaramond font-extralight leading-snug max-w-5xl mx-auto mb-8"
+        className="text-3xl sm:text-4xl font-ebgaramond font-extralight leading-snug max-w-5xl mx-auto mb-8"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
         viewport={{ once: true }}
       >
         Feeling anxious, stuck, or emotionally drained? Therapy can help you
-        come back to yourself.
+        come back to yourself,
         <br />
         <span className="block mt-2">
           a powerful investment in your well-being.
@@ -31,7 +31,7 @@ export default function Services() {
 
       {/* paragraph */}
       <motion.p
-        className="text-[17px] sm:text-[18px] max-w-4xl mx-auto leading-relaxed font-light"
+        className="text-[15px] sm:text-[16px] max-w-4xl mx-auto leading-relaxed font-light"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -46,7 +46,7 @@ export default function Services() {
 
       {/* horizontal line */}
       <motion.hr
-        className="border-[#7e7e6b] text-[#7a6e5c] border-b-1 opacity-60 mx-60 my-10 mt-20"
+        className="border-[#7e7e6b] text-[#7a6e5c] border-b-1 opacity-60 mx-20 my-10 mt-20"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}

@@ -15,7 +15,7 @@ export default function Home() {
       <Hero />
       <About />
       {/* partition */}
-      <hr className="border-[#7e7e6b] border-b-1 opacity-60 mx-70 my-10" />
+      <hr className="border-[#7e7e6b] border-b-1 opacity-60 mx-20 my-10" />
       <Services />
       <Rates />
       <QuoteSection />

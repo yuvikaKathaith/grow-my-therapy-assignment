@@ -14,7 +14,7 @@ export default function QuoteSection() {
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
-        <p className="text-3xl sm:text-4xl font-normal leading-relaxed font-ebgaramond mb-2">
+        <p className="text-2xl sm:text-3xl font-normal leading-relaxed font-ebgaramond mb-2">
           Your journey matters. I’m here when you’re ready.
         </p>
         <p className="text-lg sm:text-xl font-light italic">

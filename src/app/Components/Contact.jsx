@@ -62,7 +62,7 @@ export default function Contact() {
 
   return (
     <motion.section
-      className="bg-[#f3f0e8] px-8 py-16 flex justify-center items-center text-xl font-ebgaramond"
+      className="bg-[#f3f0e8] px-8 py-16 flex justify-center items-center text-lg font-ebgaramond"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
@@ -77,7 +77,7 @@ export default function Contact() {
         viewport={{ once: true }}
       >
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-2"
+          className="text-2xl sm:text-3xl font-bold text-center mb-2"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -86,7 +86,7 @@ export default function Contact() {
         </motion.h2>
 
         <motion.p
-          className="text-center text-[17px] text-gray-700 mb-6"
+          className="text-center text-[15px] text-gray-700 mb-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -151,9 +151,9 @@ export default function Contact() {
             name="agree"
             checked={form.agree}
             onChange={handleChange}
-            className="mt-2"
+            className="mt-1"
           />
-          <label className="text-md">I agree to be contacted</label>
+          <label className="text-sm">I agree to be contacted</label>
         </motion.div>
         {errors.agree && <p className="text-red-500 text-sm mb-2">{errors.agree}</p>}
 
@@ -169,7 +169,7 @@ export default function Contact() {
         </motion.button>
 
         <motion.p
-          className="text-[18px] text-center text-gray-500 mt-3"
+          className="text-[16px] text-center text-gray-500 mt-3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.9 }}
