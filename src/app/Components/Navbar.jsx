@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <header className="bg-[#fffffff1] my-16 mx-10 sm:px-10">
+    <header className="bg-[#f3f0e8] px-19 py-16">
       <div className="flex items-center">
-        <Link href='/'> 
+        <Link href="/">
           <Image
             src="/assets/logo/logo.png"
             alt="Logo"

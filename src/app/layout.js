@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 const ebGaramond = EB_Garamond({
   variable: "--font-eb-garamond",
   subsets: ["latin"],
-  weight: ["500"], 
+  weight: ["400"], 
 });
 
 export const metadata = {
