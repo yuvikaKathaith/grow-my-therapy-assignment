@@ -10,8 +10,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="bg-[#f3f0e8] pb-20">
-      <section className="relative h-[780px] flex items-center justify-center text-center mx-19">
+    <div className="bg-[#f3f0e8] lg:pb-20 sm:pb-10 font-ebgaramond">
+      <section className="relative lg:h-[700px] sm:h-[680px] flex items-center justify-center text-center lg:mx-15 sm:mx-8">
         {/* bg video only on client to avoid hydration error */}
         {isClient && (
           <>
@@ -29,17 +29,17 @@ export default function Hero() {
         )}
 
         {/* hero text */}
-        <div className="relative z-20 text-white max-w-8xl px-4">
-          <h1 className="text-3xl sm:text-5xl font-serif mt-10">
-            <div className="text-4xl sm:text-6xl font-light mb-12">
-              Compassionate Psychological Care for
+        <div className="relative z-20 text-white max-w-8xl lg:px-4 sm:px-10">
+          <h1 className="lg:text-3xl sm:text-4xl font-serif lg:mt-10 sm:mt-10">
+            <div className="lg:text-6xl sm:text-4xl font-light lg:mb-12 sm:mb-4">
+              Psychological Care for
             </div>
-            <div className="text-4xl sm:text-6xl font-light mb-10">
+            <div className="lg:text-6xl sm:text-4xl font-light lg:mb-10 sm:mb-4">
               Growth, Insight, and Healing
             </div>
           </h1>
 
-          <p className="mt-6 text-lg sm:text-[23px] font-extralight font-serif mb-5">
+          <p className="mt-6 lg:text-[22px] sm:text-[20px] font-extralight font-serif mb-5">
             Offering individual and couples therapy in Los Angeles and via
             secure Zoom sessions across California
           </p>
@@ -52,7 +52,7 @@ export default function Hero() {
             <img
               src="/assets/hero/button.png"
               alt="Book a Free Consult"
-              className="mx-auto w-[280px] h-auto transition duration-300 hover:brightness-75"
+              className="mx-auto lg:w-[280px] sm:w-[200px] h-auto transition duration-300 hover:brightness-75"
             />
           </a>
         </div>

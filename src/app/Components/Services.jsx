@@ -53,7 +53,7 @@ export default function Services() {
         viewport={{ once: true }}
       />
 
-      <div className="mt-20">
+      <div className="lg:mt-20 sm:mt-20">
         <motion.h3
           className="text-[30px] sm:text-[40px] font-ebgaramond font-light mb-14"
           initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,7 @@ export default function Services() {
         </motion.h3>
 
         <motion.div
-          className="flex flex-col md:flex-row justify-center items-center gap-15 max-w-8xl mx-auto mt-30"
+          className="flex sm:flex-row sm:flex-wrap lg:flex-wrap lg:flex-row justify-center items-center lg:gap-15 sm:gap-15 sm:max-w-8xl lg:max-w-8xl lg:mx-auto mt-30"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}

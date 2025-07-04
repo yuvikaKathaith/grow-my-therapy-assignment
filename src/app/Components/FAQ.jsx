@@ -16,7 +16,7 @@ export default function FAQ() {
 
   return (
     <motion.section
-      className="bg-white px-6 py-50 text-[#7a6e5c] font-ebgaramond"
+      className="bg-white lg:px-6 lg:py-50 sm:px-30 sm:py-40 text-[#7a6e5c] font-ebgaramond"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
