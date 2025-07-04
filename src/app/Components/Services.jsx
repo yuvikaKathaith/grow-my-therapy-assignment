@@ -22,11 +22,7 @@ export default function Services() {
         viewport={{ once: true }}
       >
         Feeling anxious, stuck, or emotionally drained? Therapy can help you
-        come back to yourself,
-        <br />
-        <span className="block mt-2">
-          a powerful investment in your well-being.
-        </span>
+        come back to yourself, a powerful investment in your well-being.
       </motion.h2>
 
       {/* paragraph */}
